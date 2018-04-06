@@ -18,6 +18,17 @@ public class LinkedList {
         this.head = head;
         current = head; 
     }
+    public void insert(String data){
+        if (head.getNext()==null){
+            add(data);
+        }else{
+            Node temp = new Node(data);
+            temp.setNext(head.getNext());
+            head.setNext(temp);
+        }
+        
+        
+    }
     
     public void add(String data){
         Node next = new Node(data);
@@ -68,12 +79,14 @@ public class LinkedList {
         list.add("Marcez");
         list.add("Kwiecień");
         list.add("Maj");
-        list.printList();
+       // list.printList();
         list.remove();
-        list.printList();
+       // list.printList();
         list.remove();
-        list.printList();
+       // list.printList();
         list.add("Kwiecień");
+       // list.printList();
+        list.insert("January");
         list.printList();
     }
 }
