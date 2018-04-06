@@ -28,6 +28,28 @@ public class LinkedList {
         current = next; 
         
     }
+    /**
+     * This removes the last node.  
+     */
+    
+    public void remove(){
+     /*   Because this is very naive list and 
+     * each node only points towards the next node (forward), current cannot
+     * just be deleted.  
+     */
+       //first check that there is more than one node (not just head).  Head cannot be deleted.  
+        if (head.getNext() != null){
+            Node temp = head; 
+            //find next to last 
+            while(temp.getNext().getNext()!= null){
+                temp = temp.getNext();
+            }
+            // from the next to last, set the last node to null
+            temp.setNext(null);
+            //the next to last is now the last.  Make it the current. 
+            current = temp; 
+        }
+    }
     
     public void printList(){
         Node n = head; 
@@ -43,6 +65,15 @@ public class LinkedList {
         LinkedList list = new LinkedList(new Node ("Styczeń"));
         //list.printList();
         list.add("Luty");
+        list.add("Marcez");
+        list.add("Kwiecień");
+        list.add("Maj");
+        list.printList();
+        list.remove();
+        list.printList();
+        list.remove();
+        list.printList();
+        list.add("Kwiecień");
         list.printList();
     }
 }
